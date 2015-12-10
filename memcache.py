@@ -62,7 +62,7 @@ import six
 
 def cmemcache_hash(key):
     if (six.PY3 and isinstance(key, str)) or (six.PY2 and isinstance(key, unicode)):
-        key = key.encode('ascii')
+        key = key.encode('utf-8')
     return (
         (((binascii.crc32(key) & 0xffffffff)
           >> 16) & 0x7fff) or 1)
